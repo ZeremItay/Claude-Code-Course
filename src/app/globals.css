@@ -47,8 +47,8 @@
   --radius-4xl: calc(var(--radius) + 16px);
 
   /* Custom coding vibe colors */
-  --color-surface: #12121a;
-  --color-surface-elevated: #1a1a2e;
+  --color-surface: #0e0e16;
+  --color-surface-elevated: #161625;
   --color-neon-pink: #e91e8c;
   --color-neon-pink-light: #f472b6;
   --color-neon-purple: #a855f7;
@@ -59,36 +59,36 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #0a0a0f;
+  --background: #06060b;
   --foreground: #e4e4e7;
-  --card: #12121a;
+  --card: #0c0c14;
   --card-foreground: #e4e4e7;
-  --popover: #12121a;
+  --popover: #0c0c14;
   --popover-foreground: #e4e4e7;
   --primary: #e91e8c;
   --primary-foreground: #ffffff;
-  --secondary: #1a1a2e;
+  --secondary: #161625;
   --secondary-foreground: #e4e4e7;
-  --muted: #1a1a2e;
+  --muted: #161625;
   --muted-foreground: #71717a;
   --accent: #a855f7;
   --accent-foreground: #ffffff;
   --destructive: #ef4444;
-  --border: #27272a;
-  --input: #27272a;
+  --border: #1e1e2e;
+  --input: #1e1e2e;
   --ring: #e91e8c;
   --chart-1: #e91e8c;
   --chart-2: #a855f7;
   --chart-3: #c084fc;
   --chart-4: #f472b6;
   --chart-5: #22c55e;
-  --sidebar: #0a0a0f;
+  --sidebar: #06060b;
   --sidebar-foreground: #e4e4e7;
   --sidebar-primary: #e91e8c;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #1a1a2e;
+  --sidebar-accent: #161625;
   --sidebar-accent-foreground: #e4e4e7;
-  --sidebar-border: #27272a;
+  --sidebar-border: #1e1e2e;
   --sidebar-ring: #e91e8c;
 }
 
@@ -101,36 +101,179 @@
   }
 }
 
-/* Scrollbar */
+/* ═══════════════════════════════════════
+   PREMIUM VISUAL EFFECTS
+   ═══════════════════════════════════════ */
+
+/* Animated grid background */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(233, 30, 140, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(233, 30, 140, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scanline effect */
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+  background: var(--card);
+  border-radius: var(--radius-lg);
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(233, 30, 140, 0.4),
+    rgba(168, 85, 247, 0.1),
+    rgba(233, 30, 140, 0.0),
+    rgba(168, 85, 247, 0.4)
+  );
+  background-size: 300% 300%;
+  animation: gradient-shift 8s ease infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Terminal window frame */
+.terminal-frame {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--card);
+}
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border);
+}
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* Glow effects */
+.neon-glow {
+  box-shadow:
+    0 0 15px rgba(233, 30, 140, 0.3),
+    0 0 40px rgba(233, 30, 140, 0.1),
+    0 0 80px rgba(233, 30, 140, 0.05);
+}
+
+.neon-glow-purple {
+  box-shadow:
+    0 0 15px rgba(168, 85, 247, 0.3),
+    0 0 40px rgba(168, 85, 247, 0.1),
+    0 0 80px rgba(168, 85, 247, 0.05);
+}
+
+.glow-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(233, 30, 140, 0.5),
+    rgba(168, 85, 247, 0.5),
+    transparent
+  );
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #e91e8c, #c084fc, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Typing cursor blink */
+.cursor-blink::after {
+  content: "▊";
+  animation: blink 1s step-end infinite;
+  color: #e91e8c;
+  font-weight: 400;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Focus glow for inputs */
+input:focus, textarea:focus {
+  box-shadow: 0 0 0 1px rgba(233, 30, 140, 0.3), 0 0 15px rgba(233, 30, 140, 0.1);
+}
+
+/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-surface);
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 4px;
+  background: rgba(233, 30, 140, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(233, 30, 140, 0.4);
 }
 
 /* Selection */
 ::selection {
   background-color: rgba(233, 30, 140, 0.3);
-  color: var(--foreground);
+  color: #ffffff;
 }
 
-/* Neon glow utilities */
-.neon-glow {
-  box-shadow: 0 0 15px rgba(233, 30, 140, 0.4), 0 0 30px rgba(233, 30, 140, 0.2);
+/* Floating particles animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
 }
 
-.neon-glow-purple {
-  box-shadow: 0 0 15px rgba(168, 85, 247, 0.4), 0 0 30px rgba(168, 85, 247, 0.2);
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, #e91e8c, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Pulse ring for WhatsApp */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(1.5); opacity: 0; }
 }

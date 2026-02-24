@@ -11,7 +11,13 @@
       "Bash(npm run lint)",
       "Bash(git status -u)",
       "Bash(git remote add origin https://github.com/ZeremItay/Claude-Code-Course.git)",
-      "Bash(git add .claude/settings.json CLAUDE.md components.json package.json package-lock.json src/app/globals.css src/app/layout.tsx src/app/page.tsx src/app/actions/contact.ts src/components/contact-form.tsx src/components/providers/lenis-provider.tsx src/components/section-wrapper.tsx src/components/sections/contact-section.tsx src/components/sections/hero-section.tsx src/components/sections/services-section.tsx src/components/sections/value-proposition.tsx src/components/service-card.tsx src/components/ui/button.tsx src/components/ui/input.tsx src/components/ui/label.tsx src/components/ui/sonner.tsx src/components/whatsapp-button.tsx src/lib/constants.ts src/lib/fonts.ts src/lib/schemas.ts src/lib/utils.ts)"
+      "Bash(git add .claude/settings.json CLAUDE.md components.json package.json package-lock.json src/app/globals.css src/app/layout.tsx src/app/page.tsx src/app/actions/contact.ts src/components/contact-form.tsx src/components/providers/lenis-provider.tsx src/components/section-wrapper.tsx src/components/sections/contact-section.tsx src/components/sections/hero-section.tsx src/components/sections/services-section.tsx src/components/sections/value-proposition.tsx src/components/service-card.tsx src/components/ui/button.tsx src/components/ui/input.tsx src/components/ui/label.tsx src/components/ui/sonner.tsx src/components/whatsapp-button.tsx src/lib/constants.ts src/lib/fonts.ts src/lib/schemas.ts src/lib/utils.ts)",
+      "Bash(git commit:*)",
+      "Bash(git branch -M main)",
+      "Bash(git push -u origin main)",
+      "Read(//c/Users/zerem/.claude/plugins/cache/anthropic-agent-skills/example-skills/1ed29a03dc85/skills/frontend-design/**)",
+      "Bash(npx vercel --version)",
+      "Bash(git add .claude/settings.json .claude/skills/frontend-design/SKILL.md src/app/globals.css src/app/page.tsx src/components/contact-form.tsx src/components/footer.tsx src/components/header.tsx src/components/sections/contact-section.tsx src/components/sections/hero-section.tsx src/components/sections/services-section.tsx src/components/sections/value-proposition.tsx src/components/service-card.tsx src/components/whatsapp-button.tsx)"
     ]
   }
 }

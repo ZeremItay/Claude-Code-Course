@@ -28,9 +28,7 @@ const services = [
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
+    transition: { staggerChildren: 0.15 },
   },
 };
 
@@ -39,23 +37,29 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" as const },
+    transition: { duration: 0.6, ease: "easeOut" as const },
   },
 };
 
 export function ServicesSection() {
   return (
-    <section id="services" className="px-4 py-24">
+    <section id="services" className="relative px-4 py-28">
+      {/* Section separator */}
+      <div className="glow-line mx-auto mb-20 max-w-xs" />
+
       <div className="mx-auto max-w-6xl">
         <SectionWrapper>
-          <h2 className="mb-4 text-center text-3xl font-bold md:text-4xl">
-            <span className="font-mono text-neon-purple">{"<"}</span>
-            שירותים
-            <span className="font-mono text-neon-purple">{" />"}</span>
-          </h2>
-          <p className="mx-auto mb-12 max-w-2xl text-center text-muted-foreground">
-            כל פרויקט מותאם אישית לצרכים של העסק שלך
-          </p>
+          <div className="mb-16 text-center">
+            <span className="mb-4 inline-block font-mono text-xs uppercase tracking-widest text-neon-purple">
+              {"// services"}
+            </span>
+            <h2 className="mb-5 text-3xl font-bold md:text-5xl">
+              מה אני <span className="gradient-text">בונה</span>
+            </h2>
+            <p className="mx-auto max-w-xl text-base text-muted-foreground md:text-lg">
+              כל פרויקט מותאם אישית לצרכים של העסק שלך
+            </p>
+          </div>
         </SectionWrapper>
 
         <motion.div
